@@ -15,6 +15,8 @@
 //
 // add in forth branch twice.
 //
+// add in forth branch 3 times.
+//
 
 #include "JxBigNum.h"
 #include <sstream>
