@@ -3,11 +3,16 @@
 //  NonDisplayNumber
 //  大数,实现运算操作. this is in master branch
 //  added in tata branch.
+//  add in second branch.
 //  add in TryAlgotithm first branch.
 //  add some text in tata second times.
 //  Created by liyoudi on 20131107.
+//  add in second branch second times.
+//  add in third branch
 //  Copyright (c) 2013年 liyoudi. All rights reserved.
 //
+
+// add feathure in sixth branch.
 
 // add feathure in first branch.
 
