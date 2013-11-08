@@ -12,7 +12,9 @@
 //  Copyright (c) 2013年 liyoudi. All rights reserved.
 //
 // add in forth branch.
-
+//
+// add in forth branch twice.
+//
 
 #include "JxBigNum.h"
 #include <sstream>
