@@ -17,11 +17,16 @@ class JxBigNum
 {
 public:
     JxBigNum();
+    explicit JxBigNum(const char *szNum);
+    explicit JxBigNum(const std::string &strNum);
     JxBigNum(int n);
     JxBigNum(unsigned int n);
     JxBigNum(const JxBigNum &n);
     void CutHighZero();
     JxBigNum & AddOrSub(const JxBigNum &num, bool bAdd);
+
+    friend JxBigNum operator >> (const JxBigNum &num1, unsigned int nShiftCount);
+    friend JxBigNum operator << (const JxBigNum &num1, unsigned int nShiftCount);
 
     friend JxBigNum operator + (const JxBigNum &num1, const JxBigNum &num2);
     friend JxBigNum operator - (const JxBigNum &num1, const JxBigNum &num2);
@@ -48,6 +53,8 @@ public:
     JxBigNum & operator *= (const JxBigNum &num);
     JxBigNum & operator /= (const JxBigNum &num);
     JxBigNum & operator %= (const JxBigNum &num);
+    JxBigNum & operator >>= (unsigned int nShiftCount);
+    JxBigNum & operator <<= (unsigned int nShiftCount);
     static JxBigNum GetBigNum(unsigned int n);
 
     static JxBigNum MultiUI(unsigned int n1, unsigned int n2);

@@ -43,6 +43,70 @@ JxBigNum::JxBigNum():mbSign(false)
 {
     mNums.push_front(0);
 }
+
+JxBigNum::JxBigNum(const char *szNum):mbSign(false)
+{
+    mNums.push_front(0);
+    if (!szNum || !szNum[0]) {
+        return ;
+    }
+    unsigned int nPos = 0;
+    unsigned int nJinZhi = 10;
+    if (szNum[nPos] == '-')
+    {
+        mbSign = true;
+        ++nPos;
+    }
+    if (szNum[nPos] == '+')
+    {
+        mbSign = false;
+        ++nPos;
+    }
+    if (szNum[nPos] == '0' && (szNum[1 + nPos] == 'x' || szNum[1 + nPos] == 'X'))
+    {
+        nJinZhi = 16;
+        nPos += 2;
+    }
+    szNum += nPos;
+    if (nJinZhi == 16)
+    {
+        for (;*szNum;++szNum)
+        {
+            if (*szNum <= 0 || (!isalnum(*szNum))) {
+                break;
+            }
+            (*this) *= nJinZhi;
+            if(*szNum >= '0' && *szNum <= '9')
+            {
+                (*this) += *szNum - '0';
+            }
+            else if(*szNum >= 'A' && *szNum <= 'Z')
+            {
+                (*this) += *szNum - 'A';
+            }
+            else if(*szNum >= 'a' && *szNum <= 'z')
+            {
+                (*this) += *szNum - 'a';
+            }
+        }
+    }
+    else if(nJinZhi == 10)
+    {
+        for (;*szNum;++szNum)
+        {
+            if (*szNum < '0' || *szNum > '9') {
+                break;
+            }
+            (*this) *= nJinZhi;
+            (*this) += *szNum - '0';
+        }
+    }
+}
+JxBigNum::JxBigNum(const std::string &strNum):mbSign(false)
+{
+
+}
+
 JxBigNum::JxBigNum(int n)
 {
     if (n < 0) {
@@ -228,16 +292,31 @@ JxBigNum & JxBigNum::operator -= (const JxBigNum &num)
 
 JxBigNum & JxBigNum::operator *= (const JxBigNum &num)
 {
+    (*this) = (*this) * num;
     return *this;
 }
 
 JxBigNum & JxBigNum::operator /= (const JxBigNum &num)
 {
+    (*this) = (*this) / num;
     return *this;
 }
 
 JxBigNum & JxBigNum::operator %= (const JxBigNum &num)
 {
+    (*this) = (*this) % num;
+    return *this;
+}
+
+JxBigNum & JxBigNum::operator >>= (unsigned int nShiftCount)
+{
+    (*this) = (*this) >> nShiftCount;
+    return *this;
+}
+
+JxBigNum & JxBigNum::operator <<= (unsigned int nShiftCount)
+{
+    (*this) = (*this) << nShiftCount;
     return *this;
 }
 
@@ -274,15 +353,70 @@ JxBigNum JxBigNum::MultiUI(unsigned int n1, unsigned int n2)
     return low + high;
 }
 
-JxBigNum operator >> (const JxBigNum &num1, unsigned int nShiftCount)
+JxBigNum operator >> (const JxBigNum &num, unsigned int nShiftCount)
 {
     JxBigNum res;
+    int nCutCount = nShiftCount / 32;
+    nShiftCount %= 32;
+    JxBigNum::NumberList::const_iterator iterNum;
+    iterNum = num.mNums.begin();
+    for (int i = 0; i < nCutCount && iterNum != num.mNums.end(); i++)
+    {
+        ++iterNum;
+    }
+    if(iterNum != num.mNums.end())
+    {
+        unsigned int tmp = 0;
+        res.mNums.clear();
+        for (; iterNum != num.mNums.end();++iterNum)
+        {
+            tmp = (*iterNum);
+            if(!res.mNums.empty())
+            {
+                res.mNums.back() |= tmp << (32 - nShiftCount);
+            }
+            res.mNums.push_back(tmp >> nShiftCount);
+        }
+    }
+    res.CutHighZero();
     return res;
 }
 
-JxBigNum operator << (const JxBigNum &num1, unsigned int nShiftCount)
+JxBigNum operator << (const JxBigNum &num, unsigned int nShiftCount)
 {
     JxBigNum res;
+    int nCutCount = nShiftCount / 32;
+    nShiftCount %= 32;
+    JxBigNum::NumberList::const_iterator iterNum;
+    iterNum = num.mNums.begin();
+    res.mNums.clear();
+    for (int i = 0; i < nCutCount; i++)
+    {
+        res.mNums.push_back(0);
+    }
+    if(iterNum != num.mNums.end())
+    {
+        unsigned int tmp = 0;
+        for (; iterNum != num.mNums.end();++iterNum)
+        {
+            if (nShiftCount)
+            {
+                res.mNums.push_back(tmp >> (32 - nShiftCount));
+                tmp = (*iterNum);
+                res.mNums.back() |= tmp << nShiftCount;
+            }
+            else
+            {
+                res.mNums.push_back(*iterNum);
+            }
+        }
+        unsigned int aaa = tmp >> (32 - nShiftCount);
+        if (nShiftCount && aaa)
+        {
+            res.mNums.push_back(tmp >> (32 - nShiftCount));
+        }
+    }
+    res.CutHighZero();
     return res;
 }
 
@@ -309,13 +443,14 @@ JxBigNum operator * (const JxBigNum &num1, const JxBigNum &num2)
     for (; iter1 != num1.mNums.end(); ++iter1, ++nOutPos)
     {
         nInPos = nOutPos;
-        for (; iter2 != num2.mNums.end(); ++iter2, ++nInPos)
+        for (iter2 = num2.mNums.begin(); iter2 != num2.mNums.end(); ++iter2, ++nInPos)
         {
             tmp = JxBigNum::MultiUI(*iter1, *iter2);
             for (i = 0; i < nInPos; ++i) {
                 tmp.mNums.push_front(0);
             }
             res += tmp;
+//            std::cout << "tmp is " << tmp << ", res is " << res << std::endl;
         }
     }
     res.CutHighZero();
@@ -342,11 +477,25 @@ std::ostream & operator << (std::ostream &os, const JxBigNum &num)
         os << "-";
     }
     os << "0x";
+    bool bCutZero = true;
+    char szBuffer[20] = "";
+    char *sz = szBuffer;
     for (; riter != num.mNums.rend(); ++riter)
     {
-        char sz[20] = "";
+        sz = szBuffer;
         sprintf(sz, "%08x", (*riter));
+        while (bCutZero && *sz == '0')
+        {
+            sz++;
+        }
+        if (bCutZero && *sz)
+        {
+            bCutZero = false;
+        }
         os << sz;
+    }
+    if (!(*sz)) {
+        os << "0";
     }
     return os;
 }
