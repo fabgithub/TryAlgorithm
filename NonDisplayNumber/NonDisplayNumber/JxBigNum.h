@@ -22,6 +22,7 @@ public:
     JxBigNum(int n);
     JxBigNum(unsigned int n);
     JxBigNum(const JxBigNum &n);
+    void InitWithStr(const char *szNum);
     void CutHighZero();
     JxBigNum & AddOrSub(const JxBigNum &num, bool bAdd);
 

@@ -46,65 +46,11 @@ JxBigNum::JxBigNum():mbSign(false)
 
 JxBigNum::JxBigNum(const char *szNum):mbSign(false)
 {
-    mNums.push_front(0);
-    if (!szNum || !szNum[0]) {
-        return ;
-    }
-    unsigned int nPos = 0;
-    unsigned int nJinZhi = 10;
-    if (szNum[nPos] == '-')
-    {
-        mbSign = true;
-        ++nPos;
-    }
-    if (szNum[nPos] == '+')
-    {
-        mbSign = false;
-        ++nPos;
-    }
-    if (szNum[nPos] == '0' && (szNum[1 + nPos] == 'x' || szNum[1 + nPos] == 'X'))
-    {
-        nJinZhi = 16;
-        nPos += 2;
-    }
-    szNum += nPos;
-    if (nJinZhi == 16)
-    {
-        for (;*szNum;++szNum)
-        {
-            if (*szNum <= 0 || (!isalnum(*szNum))) {
-                break;
-            }
-            (*this) *= nJinZhi;
-            if(*szNum >= '0' && *szNum <= '9')
-            {
-                (*this) += *szNum - '0';
-            }
-            else if(*szNum >= 'A' && *szNum <= 'Z')
-            {
-                (*this) += *szNum - 'A';
-            }
-            else if(*szNum >= 'a' && *szNum <= 'z')
-            {
-                (*this) += *szNum - 'a';
-            }
-        }
-    }
-    else if(nJinZhi == 10)
-    {
-        for (;*szNum;++szNum)
-        {
-            if (*szNum < '0' || *szNum > '9') {
-                break;
-            }
-            (*this) *= nJinZhi;
-            (*this) += *szNum - '0';
-        }
-    }
+    InitWithStr(szNum ? szNum : "0");
 }
 JxBigNum::JxBigNum(const std::string &strNum):mbSign(false)
 {
-
+    InitWithStr(strNum.empty() ? "0" : strNum.c_str());
 }
 
 JxBigNum::JxBigNum(int n)
@@ -459,14 +405,61 @@ JxBigNum operator * (const JxBigNum &num1, const JxBigNum &num2)
 
 JxBigNum operator / (const JxBigNum &num1, const JxBigNum &num2)
 {
-    JxBigNum tmp(num1);
-    return tmp.AddOrSub(num2, false);
+    JxBigNum tmp;
+    JxBigNum nMin = 1, nMax = num1;
+    JxBigNum nShang = 0;
+    int nCmpRes = num1.Compare(num2);
+    if (nCmpRes <= 0) {
+        return (nCmpRes < 0) ? 0 : 1;
+    }
+    else if (num1 * num2 == num1) {
+        return num2;
+    }
+    else if(num2 == num1)
+    {
+        return num1;
+    }
+    // 使用折半查找法来试商
+    while (nMin < nMax)
+    {
+        nShang = ((nMax - nMin) >> 1) + nMin;
+//        std::cout << "nMin = " << nMin << ", nMax = " << nMax << ", nShange = " << nShang << std::endl;
+        tmp = num2 * nShang;
+        if (tmp  == num1) {
+            break;
+        }
+        else if(tmp < num1)
+        {
+            if (num1 - tmp < num2)
+            {
+                break;
+            }
+            nMin = nShang + 1;
+        }
+        else
+        {
+            if(tmp - num1 < num2)
+            {
+                nShang -= 1;
+                break;
+            }
+            nMax = nShang - 1;
+        }
+    }
+    if(nMin >= nMax)
+    {
+        // 不应该出现
+//        std::cout << "不应该出现在此." << std::endl;
+    }
+    return nShang;
 }
 
 JxBigNum operator % (const JxBigNum &num1, const JxBigNum &num2)
 {
     JxBigNum tmp(num1);
-    return tmp.AddOrSub(num2, false);
+    tmp = num1 / num2;
+    tmp = num1 - num2 * tmp;
+    return tmp;
 }
 
 std::ostream & operator << (std::ostream &os, const JxBigNum &num)
@@ -498,4 +491,64 @@ std::ostream & operator << (std::ostream &os, const JxBigNum &num)
         os << "0";
     }
     return os;
+}
+
+void JxBigNum::InitWithStr(const char *szNum)
+{
+    mNums.clear();
+    mNums.push_front(0);
+    if (!szNum || !szNum[0]) {
+        return ;
+    }
+    unsigned int nPos = 0;
+    unsigned int nJinZhi = 10;
+    if (szNum[nPos] == '-')
+    {
+        mbSign = true;
+        ++nPos;
+    }
+    if (szNum[nPos] == '+')
+    {
+        mbSign = false;
+        ++nPos;
+    }
+    if (szNum[nPos] == '0' && (szNum[1 + nPos] == 'x' || szNum[1 + nPos] == 'X'))
+    {
+        nJinZhi = 16;
+        nPos += 2;
+    }
+    szNum += nPos;
+    if (nJinZhi == 16)
+    {
+        for (;*szNum;++szNum)
+        {
+            if (*szNum <= 0 || (!isalnum(*szNum))) {
+                break;
+            }
+            (*this) *= nJinZhi;
+            if(*szNum >= '0' && *szNum <= '9')
+            {
+                (*this) += *szNum - '0';
+            }
+            else if(*szNum >= 'A' && *szNum <= 'F')
+            {
+                (*this) += *szNum - 'A' + 10;
+            }
+            else if(*szNum >= 'a' && *szNum <= 'f')
+            {
+                (*this) += *szNum - 'a' + 10;
+            }
+        }
+    }
+    else if(nJinZhi == 10)
+    {
+        for (;*szNum;++szNum)
+        {
+            if (*szNum < '0' || *szNum > '9') {
+                break;
+            }
+            (*this) *= nJinZhi;
+            (*this) += *szNum - '0';
+        }
+    }
 }

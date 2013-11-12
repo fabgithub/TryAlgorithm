@@ -28,7 +28,7 @@
         if(#op[0] == '>' && #op[1] == '>') tmp1 >>= n2; \
         if(#op[0] == '<' && #op[1] == '<') tmp1 <<= n2; \
         TS_ASSERT_EQUALS(tmp1.ToString(), resStr ); \
-        TS_ASSERT_EQUALS( (JxBigNum(n1) op (n2)).ToString(), resStr ); \
+        TS_ASSERT_EQUALS( (JxBigNum(n1) op (n2)), JxBigNum(resStr) ); \
     }
 
 namespace CxxTest
@@ -159,6 +159,37 @@ public:
     void testDiv(void)
     {
         ShowEsp();
+        TEST_BIGNUM_OP(32, 3, /, "0xa");
+        TEST_BIGNUM_OP("0x123456789f", 0x10, /, "0x123456789");
+        TEST_BIGNUM_OP("0x45160b7a437", 0x10d63af1, /, "0x41a7");
+        TEST_BIGNUM_OP("0x41a7", 0x10d63af1, *, "0x45160b7a437");
+        JxBigNum num(rand());
+        JxBigNum startValue(num);
+        JxBigNum nTmp = rand();
+        std::cout << "num = " << num << ", nTmp = " << nTmp << std::endl;
+        int n = 0;
+        int nTimes = 1;
+        for(n = 0;n < nTimes;n++)
+        {
+            std::cout << num << " * " << nTmp;
+            num *= nTmp;
+            std::cout << " = " << num << std::endl;
+        }
+        for(n = 0;n < nTimes;n++)
+        {
+            std::cout << num << " / " << nTmp;
+            num /= nTmp;
+            std::cout << " = " << num << std::endl;
+        }
+        TS_ASSERT_EQUALS(startValue, num);
+        for(n = 0;n < 1;n++)
+        {
+            nTmp = rand();
+            nTmp << rand() % 117;
+            num *= nTmp;
+            num /= nTmp;
+            TS_ASSERT_EQUALS(num, startValue);
+        }
     }
     void testMod(void)
     {
