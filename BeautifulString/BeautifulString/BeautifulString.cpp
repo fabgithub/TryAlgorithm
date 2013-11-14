@@ -22,17 +22,19 @@ int perfect(const string &strOrign)
     const char *szCh = strOrign.c_str();
     while (*szCh)
     {
-        s += *szCh;
+        if ((*szCh) <= 'z' && (*szCh) >= 'a' ) {
+            s += (*szCh) - 'a' + 'A';
+        }
+        else
+        {
+            s += *szCh;
+        }
         ++szCh;
     }
     map<char,int> chcount;
     for(int i=0;i<s.length();i++)
     {
         char c = (s.at(i));
-        if(c >= 'a' && c <= 'z')
-        {
-            c -= 'a' -'z';
-        }
         if(chcount.find(c) == chcount.end())
             chcount[c]=0;
         chcount[c]++;
@@ -44,8 +46,8 @@ int perfect(const string &strOrign)
         sortc.insert(std::make_pair(ici->second,ici->first));
     }
     int hao = 26;
-    multimap<int,char>::iterator iic = sortc.begin();
-    for(;iic != sortc.end();++iic)
+    multimap<int,char>::reverse_iterator iic = sortc.rbegin();
+    for(;iic != sortc.rend();++iic)
     {
         chcount[iic->second] = hao;
         hao--;
@@ -55,5 +57,10 @@ int perfect(const string &strOrign)
     {
         hao += chcount[s.at(i)];
     }
+    for (map<char,int>::iterator iter = chcount.begin(); iter != chcount.end();++iter)
+    {
+        std::cout << iter->first << " = " << iter->second << std::endl;
+    }
+    std::cout << std::endl;
     return hao;
 }
