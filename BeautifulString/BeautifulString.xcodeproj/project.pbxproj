@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B4E7604183496C700FB3E9E /* makefile in Sources */ = {isa = PBXBuildFile; fileRef = 9B4E7603183496C700FB3E9E /* makefile */; };
+		9B4E7606183496DD00FB3E9E /* runner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B4E7605183496DD00FB3E9E /* runner.cpp */; };
+		9B4E76071834977900FB3E9E /* BeautifulString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B96D53A18337FE700D70995 /* BeautifulString.cpp */; };
 		9B96D53218337FC800D70995 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B96D53118337FC800D70995 /* main.cpp */; };
 		9B96D53418337FC800D70995 /* BeautifulString.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9B96D53318337FC800D70995 /* BeautifulString.1 */; };
 		9B96D53C18337FE700D70995 /* BeautifulString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B96D53A18337FE700D70995 /* BeautifulString.cpp */; };
-		9B96D54418337FFD00D70995 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B96D54318337FFD00D70995 /* main.cpp */; };
 		9B96D54618337FFD00D70995 /* testBeautifulString.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9B96D54518337FFD00D70995 /* testBeautifulString.1 */; };
 /* End PBXBuildFile section */
 
@@ -38,13 +40,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9B4E76021834968900FB3E9E /* testBeautifulString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testBeautifulString.h; sourceTree = "<group>"; };
+		9B4E7603183496C700FB3E9E /* makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
+		9B4E7605183496DD00FB3E9E /* runner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = runner.cpp; sourceTree = "<group>"; };
 		9B96D52E18337FC800D70995 /* BeautifulString */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BeautifulString; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B96D53118337FC800D70995 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		9B96D53318337FC800D70995 /* BeautifulString.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = BeautifulString.1; sourceTree = "<group>"; };
 		9B96D53A18337FE700D70995 /* BeautifulString.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BeautifulString.cpp; sourceTree = "<group>"; };
 		9B96D53B18337FE700D70995 /* BeautifulString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulString.h; sourceTree = "<group>"; };
 		9B96D54118337FFD00D70995 /* testBeautifulString */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = testBeautifulString; sourceTree = BUILT_PRODUCTS_DIR; };
-		9B96D54318337FFD00D70995 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		9B96D54518337FFD00D70995 /* testBeautifulString.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = testBeautifulString.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,8 +102,10 @@
 		9B96D54218337FFD00D70995 /* testBeautifulString */ = {
 			isa = PBXGroup;
 			children = (
-				9B96D54318337FFD00D70995 /* main.cpp */,
+				9B4E7603183496C700FB3E9E /* makefile */,
+				9B4E7605183496DD00FB3E9E /* runner.cpp */,
 				9B96D54518337FFD00D70995 /* testBeautifulString.1 */,
+				9B4E76021834968900FB3E9E /* testBeautifulString.h */,
 			);
 			path = testBeautifulString;
 			sourceTree = "<group>";
@@ -182,7 +188,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B96D54418337FFD00D70995 /* main.cpp in Sources */,
+				9B4E76071834977900FB3E9E /* BeautifulString.cpp in Sources */,
+				9B4E7604183496C700FB3E9E /* makefile in Sources */,
+				9B4E7606183496DD00FB3E9E /* runner.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +286,11 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"/work/ShareForWin/SourceCode/Research/CxxTest/cxxtest-4.3",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -285,6 +298,11 @@
 		9B96D54918337FFD00D70995 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"/work/ShareForWin/SourceCode/Research/CxxTest/cxxtest-4.3",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -308,6 +326,7 @@
 				9B96D53918337FC800D70995 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9B96D54718337FFD00D70995 /* Build configuration list for PBXNativeTarget "testBeautifulString" */ = {
 			isa = XCConfigurationList;
@@ -316,6 +335,7 @@
 				9B96D54918337FFD00D70995 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

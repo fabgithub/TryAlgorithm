@@ -10,5 +10,7 @@
 #define __BeautifulString__BeautifulString__
 
 #include <iostream>
+#include <string>
+int perfect(const std::string &strOrign);
 
 #endif /* defined(__BeautifulString__BeautifulString__) */
