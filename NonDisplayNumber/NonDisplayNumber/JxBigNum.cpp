@@ -173,7 +173,14 @@ int JxBigNum::Compare (const JxBigNum &num) const
     riNum = num.mNums.rbegin();
     for (; riMe != mNums.rend(); ++riMe, ++riNum)
     {
-        res = (*riMe) - (*riNum);
+        if((*riMe) > (*riNum))
+        {
+            res = 1;
+        }
+        else if((*riMe) < (*riNum))
+        {
+            res = -1;
+        }
         if(res)
         {
             break;
@@ -423,8 +430,8 @@ JxBigNum operator / (const JxBigNum &num1, const JxBigNum &num2)
     while (nMin < nMax)
     {
         nShang = ((nMax - nMin) >> 1) + nMin;
-//        std::cout << "nMin = " << nMin << ", nMax = " << nMax << ", nShange = " << nShang << std::endl;
         tmp = num2 * nShang;
+//        std::cout << "num1 (" << num1 << "), " << num2 << " * nShang = " << tmp << ", nShange = " << nShang << "nMin = " << nMin << ", nMax = " << nMax << std::endl;
         if (tmp  == num1) {
             break;
         }
@@ -432,6 +439,7 @@ JxBigNum operator / (const JxBigNum &num1, const JxBigNum &num2)
         {
             if (num1 - tmp < num2)
             {
+//                std::cout << "num1 - tmp = " << num1 << " - " << tmp << " = " << num1 - tmp << ", num2 = " << num2 << std::endl;
                 break;
             }
             nMin = nShang + 1;
