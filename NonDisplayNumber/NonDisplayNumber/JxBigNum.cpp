@@ -158,6 +158,22 @@ JxBigNum & JxBigNum::AddOrSub(const JxBigNum &num, bool bAdd)
     return *this;
 }
 
+JxBigNum JxBigNum::Pow(const JxBigNum &nTimes) const
+{
+    JxBigNum result(1);
+    JxBigNum tmpTimes = nTimes;
+    JxBigNum tmpPower = *this;
+    while (tmpTimes > 0)
+    {
+        if (tmpTimes % 2 == 1) {
+            result *= tmpPower;
+        }
+        tmpTimes /= 2;
+        tmpPower *= tmpPower;
+    }
+    return result;
+}
+
 int JxBigNum::Compare (const JxBigNum &num) const
 {
     if (mNums.size() > num.mNums.size()) {
@@ -427,11 +443,11 @@ JxBigNum operator / (const JxBigNum &num1, const JxBigNum &num2)
         return num1;
     }
     // 使用折半查找法来试商
-    while (nMin < nMax)
+    while (nMin <= nMax)
     {
         nShang = ((nMax - nMin) >> 1) + nMin;
         tmp = num2 * nShang;
-//        std::cout << "num1 (" << num1 << "), " << num2 << " * nShang = " << tmp << ", nShange = " << nShang << "nMin = " << nMin << ", nMax = " << nMax << std::endl;
+//        std::cout << "num1 (" << num1 << "), " << num2 << " * nShang = " << tmp << ", nShange = " << nShang << ", nMin = " << nMin << ", nMax = " << nMax << std::endl;
         if (tmp  == num1) {
             break;
         }
@@ -454,10 +470,10 @@ JxBigNum operator / (const JxBigNum &num1, const JxBigNum &num2)
             nMax = nShang - 1;
         }
     }
-    if(nMin >= nMax)
+    if(nMin > nMax)
     {
         // 不应该出现
-//        std::cout << "不应该出现在此." << std::endl;
+        std::cout << "不应该出现在此." << std::endl;
     }
     return nShang;
 }

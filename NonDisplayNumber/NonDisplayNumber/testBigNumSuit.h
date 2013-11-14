@@ -159,35 +159,36 @@ public:
     void testDiv(void)
     {
         ShowEsp();
+//        TEST_BIGNUM_OP("55", 11, /, "0x5");
+        TEST_BIGNUM_OP("0x45160b7a437", 0x10d63af1, /, "0x41a7");
+//        return ;
         TEST_BIGNUM_OP(0xFFFFEEA, 0xFEACB, /, "0x101");
-        return ;
         TEST_BIGNUM_OP(123456, 12301, /, "0xa");
         TEST_BIGNUM_OP(8304, 123, /, "0x43");
         TEST_BIGNUM_OP(32, 3, /, "0xa");
         TEST_BIGNUM_OP(100, 10, /, "0xa");
         TEST_BIGNUM_OP("0x123456789f", 0x10, /, "0x123456789");
-        TEST_BIGNUM_OP("0x45160b7a437", 0x10d63af1, /, "0x41a7");
         TEST_BIGNUM_OP("0x41a7", 0x10d63af1, *, "0x45160b7a437");
         JxBigNum num(rand());
         JxBigNum startValue(num);
         JxBigNum nTmp = rand();
-        std::cout << "num = " << num << ", nTmp = " << nTmp << std::endl;
+//        std::cout << "num = " << num << ", nTmp = " << nTmp << std::endl;
         int n = 0;
-        int nTimes = 1;
+        int nTimes = 10;
         for(n = 0;n < nTimes;n++)
         {
-            std::cout << num << " * " << nTmp;
+//            std::cout << num << " * " << nTmp;
             num *= nTmp;
-            std::cout << " = " << num << std::endl;
+//            std::cout << " = " << num << std::endl;
         }
         for(n = 0;n < nTimes;n++)
         {
-            std::cout << num << " / " << nTmp;
+//            std::cout << num << " / " << nTmp;
             num /= nTmp;
-            std::cout << " = " << num << std::endl;
+//            std::cout << " = " << num << std::endl;
         }
         TS_ASSERT_EQUALS(startValue, num);
-        for(n = 0;n < 1;n++)
+        for(n = 0;n < 10;n++)
         {
             nTmp = rand();
             nTmp << rand() % 117;
@@ -232,9 +233,20 @@ public:
         TEST_STR_NUM("0x1232300000000000");
     }
 
+    void testPower(void)
+    {
+#define TEST_POWER(str) { JxBigNum tmp(str); TS_ASSERT_EQUALS( tmp.Pow(10), tmp * tmp * tmp * tmp * tmp * tmp * tmp * tmp * tmp * tmp); }
+        TEST_POWER("0x0");
+        TEST_POWER("0x1");
+        TEST_POWER("0x10");
+        TEST_POWER("0x1231230000000000");
+        TEST_POWER("0x1232300000000000");
+    }
+
     void tearDown()
     {
         ShowEsp();
+//        std::cout << "2 ^ 13 = " << (2 ^ 13) << std::endl;
     }
 };
 

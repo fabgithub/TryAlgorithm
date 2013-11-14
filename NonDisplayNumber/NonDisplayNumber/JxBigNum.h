@@ -26,6 +26,9 @@ public:
     void CutHighZero();
     JxBigNum & AddOrSub(const JxBigNum &num, bool bAdd);
 
+    // 乘方
+    JxBigNum Pow(const JxBigNum &nTimes) const;
+
     friend JxBigNum operator >> (const JxBigNum &num1, unsigned int nShiftCount);
     friend JxBigNum operator << (const JxBigNum &num1, unsigned int nShiftCount);
 
