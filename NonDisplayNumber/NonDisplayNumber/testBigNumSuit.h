@@ -159,7 +159,12 @@ public:
     void testDiv(void)
     {
         ShowEsp();
+        TEST_BIGNUM_OP(0xFFFFEEA, 0xFEACB, /, "0x101");
+        return ;
+        TEST_BIGNUM_OP(123456, 12301, /, "0xa");
+        TEST_BIGNUM_OP(8304, 123, /, "0x43");
         TEST_BIGNUM_OP(32, 3, /, "0xa");
+        TEST_BIGNUM_OP(100, 10, /, "0xa");
         TEST_BIGNUM_OP("0x123456789f", 0x10, /, "0x123456789");
         TEST_BIGNUM_OP("0x45160b7a437", 0x10d63af1, /, "0x41a7");
         TEST_BIGNUM_OP("0x41a7", 0x10d63af1, *, "0x45160b7a437");
