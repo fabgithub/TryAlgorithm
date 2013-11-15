@@ -21,7 +21,15 @@ class testCoverageNumber : public CxxTest::TestSuite
 public:
     void testCommon(void)
     {
-        TS_ASSERT_EQUALS(CoverageNumber(29, 37, 2, 65), 17);
+        TS_ASSERT_EQUALS(CoverageNumber(18, 21, 110, 1200), 1091);
+        TS_ASSERT_EQUALS(CoverageNumber(18, 21, 109, 1200), 1092);
+        TS_ASSERT_EQUALS(CoverageNumber(18, 21, 108, 1200), 1093);
+        TS_ASSERT_EQUALS(CoverageNumber(18, 21, 107, 1200), 1093);
+        TS_ASSERT_EQUALS(CoverageNumber(18, 21, 106, 1200), 1093);
+
+        TS_ASSERT_EQUALS(CoverageNumber(29, 37, 1000000000, 1000000000), 1);
+        TS_ASSERT_EQUALS(CoverageNumber(29, 37, 74, 74), 1);
+        TS_ASSERT_EQUALS(CoverageNumber(29, 37, 59, 59), 1);
         TS_ASSERT_EQUALS(CoverageNumber(29, 37, 30, 65), 16);
 
         TS_ASSERT_EQUALS(CoverageNumber(29, 37, 87, 1116), 1026);
@@ -40,7 +48,7 @@ public:
         TS_ASSERT_EQUALS(CoverageNumber(29, 37, 81, 87), 1);
         TS_ASSERT_EQUALS(CoverageNumber(29, 37, 80, 87), 1);
 
-        TS_ASSERT_EQUALS(CoverageNumber(18, 21, 110, 1200), 1090);
+        TS_ASSERT_EQUALS(CoverageNumber(18, 21, 110, 1200), 1091);
         TS_ASSERT_EQUALS(CoverageNumber(18, 21, 1, 1200), 1143);
 
         TS_ASSERT_EQUALS(CoverageNumber(18, 21, 1, 1200), 1143);

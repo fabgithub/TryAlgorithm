@@ -10,7 +10,7 @@
 // 1000000000
 int CoverageNumber(int a, int b, int x, int y)
 {
-    if (!(a > 0 && a <= b && x > 0 && x <= y))
+    if (!(a > 0 && a <= b && x > 0 && x <= y) || y < a)
     {
         return 0;
     }
@@ -30,7 +30,7 @@ int CoverageNumber(int a, int b, int x, int y)
     int nMinFromY = ((b - 1) / (b - a)) * a;
     if (nMinFromY <= x)
     {
-        nResult += y - x;
+        nResult += y - x + 1;
         return nResult;
     }
     if(y >= nMinFromY)
