@@ -48,7 +48,8 @@ class testLuckNumber : public CxxTest::TestSuite
 public:
     void testCommon(void)
     {
-//        PrintPrimeNumList(1000);
+        if(0)
+            PrintPrimeNumList(1000);
         TS_ASSERT_EQUALS(lucky(10, 20), 4);
     }
 };

@@ -12,6 +12,11 @@
 #include <set>
 #include <list>
 
+static int gnSmallPrimeArr[] = {
+    2,   3,   5,   7,  11,  13,  17,  19,  23,  29,
+    31,  37,  41,  43,  47,  53,  59,  61,  67,  71,
+    73,  79
+};
 static int gnPrimeArr[] = {
       2,   3,   5,   7,  11,  13,  17,  19,  23,  29,
      31,  37,  41,  43,  47,  53,  59,  61,  67,  71,
@@ -44,9 +49,37 @@ void InitPrimeSet()
     }
 }
 
+int GetHowmanyNumbers(int n)
+{
+    int nResult = 0;
+    do
+    {
+        nResult++;
+        n = n / 10;
+    }while(n);
+    return nResult;
+}
+
+typedef std::set<int> SeperateWay;
+class SeperateWayLess
+{
+public:
+    bool operator () (const SeperateWay &sw1, const SeperateWay &sw2);
+};
+// 打印素数n的各种拆分方案
+void PrintSeperateWay(int n, std::set<SeperateWay,SeperateWayLess> &seperateSet)
+{
+    for (int p1 = 1; p1 <= 9; p1++)
+    {
+
+    }
+}
+
 int lucky(int x, int y)
 {
     int nResult = 0;
     InitPrimeSet();
+    // 找到和可以是素数的数字组
+    // 判断这些数字组的平方和是否是素数
     return nResult;
 }
