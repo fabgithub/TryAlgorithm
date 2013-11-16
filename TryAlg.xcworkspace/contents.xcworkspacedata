@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:SmallestOperation/SmallestOperation.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:SubsequenceCount/SubsequenceCount.xcodeproj">
    </FileRef>
    <FileRef
