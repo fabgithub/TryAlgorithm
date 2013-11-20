@@ -60,18 +60,96 @@ int GetHowmanyNumbers(int n)
     return nResult;
 }
 
-typedef std::set<int> SeperateWay;
+typedef std::multiset<int> SeperateWay;
 class SeperateWayLess
 {
 public:
-    bool operator () (const SeperateWay &sw1, const SeperateWay &sw2);
-};
-// 打印素数n的各种拆分方案
-void PrintSeperateWay(int n, std::set<SeperateWay,SeperateWayLess> &seperateSet)
-{
-    for (int p1 = 1; p1 <= 9; p1++)
+    bool operator () (const SeperateWay &sw1, const SeperateWay &sw2)
     {
+        if (sw1.size() < sw2.size())
+        {
+            return true;
+        }
+        else if(sw1.size() == sw2.size())
+        {
+            return sw1 < sw2;
+        }
+        return false;
+    }
+};
 
+std::ostream & operator << (std::ostream &os, const SeperateWay &sw)
+{
+    SeperateWay::const_iterator citer = sw.begin();
+    for (; sw.end() != citer; ++citer)
+    {
+        os << (*citer) << ", ";
+    }
+    return os;
+}
+
+// 打印素数n的各种拆分为nCount份的方案
+void PrintSeperateWay(int nPrimeNum, int nCount, std::set<SeperateWay,SeperateWayLess> &seperateSet)
+{
+    int nIndexArr[20], p1 = 1;
+    memset(nIndexArr, 0, sizeof(nIndexArr));
+
+    int nMinNum = nPrimeNum - (nCount - 1) * 9;
+    if (nMinNum <= 0)
+    {
+        nMinNum = 1;
+    }
+    if (nMinNum > 9)
+    {
+        return ;
+    }
+
+    int nMaxNum = nPrimeNum - (nCount - 1) * nMinNum;
+    if (nMaxNum > 9)
+    {
+        nMaxNum = 9;
+    }
+    if (nMaxNum <= 0)
+    {
+        return ;
+    }
+    for (p1 = 1; p1 <= nCount; p1++)
+    {
+        nIndexArr[p1] = nMinNum;
+    }
+    while (true)
+    {
+        int n = nCount;
+        for (;n > 0;--n)
+        {
+            nIndexArr[n]++;
+            if (nIndexArr[n] > nMaxNum)
+            {
+                nIndexArr[n] = nIndexArr[n - 1];
+            }
+            else
+            {
+                break;
+            }
+        }
+        if (n <= 0)
+        {
+            return ;
+        }
+        //
+        int nSum = 0;
+        SeperateWay sw;
+        int nPingFangSum = 0;
+        for (p1 = 1; p1 <= nCount; p1++)
+        {
+            nSum += nIndexArr[p1];
+            nPingFangSum += nIndexArr[p1] * nIndexArr[p1];
+            sw.insert(nIndexArr[p1]);
+        }
+        if (nSum == nPrimeNum && gPrimeSet.find(nPingFangSum) != gPrimeSet.end())
+        {
+            seperateSet.insert(sw);
+        }
     }
 }
 
@@ -81,5 +159,27 @@ int lucky(int x, int y)
     InitPrimeSet();
     // 找到和可以是素数的数字组
     // 判断这些数字组的平方和是否是素数
+
+    int nAllFangAn = 0;
+    for (int nCount = 2; nCount <= 9; ++nCount)
+    {
+        for (int i = 0; i < sizeof(gnSmallPrimeArr) / sizeof(int); i++)
+        {
+            std::set<SeperateWay,SeperateWayLess> seperateSet;
+            PrintSeperateWay(gnSmallPrimeArr[i], nCount, seperateSet);
+            std::set<SeperateWay,SeperateWayLess>::iterator iter = seperateSet.begin();
+            int nNO = 1;
+            for (; iter != seperateSet.end(); ++iter)
+            {
+//                std::cout << "\t" << nNO++ << ":\t" << (*iter) << std::endl;
+                nAllFangAn++;
+            }
+            if (!seperateSet.empty())
+            {
+                std::cout << gnSmallPrimeArr[i] << " 分成 " << nCount << " 份有 " << seperateSet.size() << " 种方案." << std::endl;
+            }
+        }
+        std::cout << "分成 <= " << nCount << " 份的方案共有 " << nAllFangAn << " 个." << std::endl;
+    }
     return nResult;
 }
