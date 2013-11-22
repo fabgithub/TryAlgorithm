@@ -11,6 +11,9 @@
       location = "group:LuckNumber/LuckNumber.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:SmallestOperation/SmallestOperation.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:SubsequenceCount/SubsequenceCount.xcodeproj">
    </FileRef>
    <FileRef
