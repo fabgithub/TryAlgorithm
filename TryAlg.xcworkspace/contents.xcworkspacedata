@@ -8,6 +8,9 @@
       location = "group:CoverageNumber/CoverageNumber.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:LuckNumber/LuckNumber.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:SubsequenceCount/SubsequenceCount.xcodeproj">
    </FileRef>
    <FileRef

@@ -11,7 +11,6 @@
 		9B7F7E02182C823C0035CD3B /* JxBigNum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B95BE21182BA43900231B63 /* JxBigNum.cpp */; };
 		9B8E13F4182A41CF00EB8968 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B8E13F3182A41CF00EB8968 /* main.cpp */; };
 		9B8E13F6182A41CF00EB8968 /* NonDisplayNumber.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9B8E13F5182A41CF00EB8968 /* NonDisplayNumber.1 */; };
-		9B95BE0C182BA2B700231B63 /* makefile in Sources */ = {isa = PBXBuildFile; fileRef = 9B95BE0B182BA2B700231B63 /* makefile */; };
 		9B95BE23182BA43900231B63 /* JxBigNum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B95BE21182BA43900231B63 /* JxBigNum.cpp */; };
 /* End PBXBuildFile section */
 
@@ -196,7 +195,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B95BE0C182BA2B700231B63 /* makefile in Sources */,
 				9B8E13F4182A41CF00EB8968 /* main.cpp in Sources */,
 				9B95BE23182BA43900231B63 /* JxBigNum.cpp in Sources */,
 			);
@@ -333,6 +331,7 @@
 				9B7F7E00182C81FE0035CD3B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9B8E13EB182A41CF00EB8968 /* Build configuration list for PBXProject "NonDisplayNumber" */ = {
 			isa = XCConfigurationList;
