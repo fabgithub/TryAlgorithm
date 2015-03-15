@@ -1,0 +1,343 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9B9CB25C184313A100A6F6F4 /* PalindromeString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCFF772183F6D0C00ED91C4 /* PalindromeString.cpp */; };
+		9B9CB25F1843159F00A6F6F4 /* makefile in Sources */ = {isa = PBXBuildFile; fileRef = 9B9CB25D1843159F00A6F6F4 /* makefile */; };
+		9BCFF75D183F6CED00ED91C4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCFF75C183F6CED00ED91C4 /* main.cpp */; };
+		9BCFF75F183F6CED00ED91C4 /* PalindromeString.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9BCFF75E183F6CED00ED91C4 /* PalindromeString.1 */; };
+		9BCFF76C183F6CFC00ED91C4 /* runner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCFF76B183F6CFC00ED91C4 /* runner.cpp */; };
+		9BCFF76E183F6CFC00ED91C4 /* test_PalindromeString.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9BCFF76D183F6CFC00ED91C4 /* test_PalindromeString.1 */; };
+		9BCFF774183F6D0C00ED91C4 /* PalindromeString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCFF772183F6D0C00ED91C4 /* PalindromeString.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9BCFF757183F6CED00ED91C4 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				9BCFF75F183F6CED00ED91C4 /* PalindromeString.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		9BCFF767183F6CFC00ED91C4 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				9BCFF76E183F6CFC00ED91C4 /* test_PalindromeString.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		9B9CB25D1843159F00A6F6F4 /* makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
+		9B9CB25E1843159F00A6F6F4 /* test_PalindromeString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test_PalindromeString.h; sourceTree = "<group>"; };
+		9BCFF759183F6CED00ED91C4 /* PalindromeString */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PalindromeString; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BCFF75C183F6CED00ED91C4 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		9BCFF75E183F6CED00ED91C4 /* PalindromeString.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = PalindromeString.1; sourceTree = "<group>"; };
+		9BCFF769183F6CFC00ED91C4 /* test_PalindromeString */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = test_PalindromeString; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BCFF76B183F6CFC00ED91C4 /* runner.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = runner.cpp; sourceTree = "<group>"; };
+		9BCFF76D183F6CFC00ED91C4 /* test_PalindromeString.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = test_PalindromeString.1; sourceTree = "<group>"; };
+		9BCFF772183F6D0C00ED91C4 /* PalindromeString.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PalindromeString.cpp; sourceTree = "<group>"; };
+		9BCFF773183F6D0C00ED91C4 /* PalindromeString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PalindromeString.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9BCFF756183F6CED00ED91C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BCFF766183F6CFC00ED91C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9BCFF750183F6CED00ED91C4 = {
+			isa = PBXGroup;
+			children = (
+				9BCFF75B183F6CED00ED91C4 /* PalindromeString */,
+				9BCFF76A183F6CFC00ED91C4 /* test_PalindromeString */,
+				9BCFF75A183F6CED00ED91C4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9BCFF75A183F6CED00ED91C4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9BCFF759183F6CED00ED91C4 /* PalindromeString */,
+				9BCFF769183F6CFC00ED91C4 /* test_PalindromeString */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9BCFF75B183F6CED00ED91C4 /* PalindromeString */ = {
+			isa = PBXGroup;
+			children = (
+				9BCFF75C183F6CED00ED91C4 /* main.cpp */,
+				9BCFF75E183F6CED00ED91C4 /* PalindromeString.1 */,
+				9BCFF772183F6D0C00ED91C4 /* PalindromeString.cpp */,
+				9BCFF773183F6D0C00ED91C4 /* PalindromeString.h */,
+			);
+			path = PalindromeString;
+			sourceTree = "<group>";
+		};
+		9BCFF76A183F6CFC00ED91C4 /* test_PalindromeString */ = {
+			isa = PBXGroup;
+			children = (
+				9B9CB25D1843159F00A6F6F4 /* makefile */,
+				9B9CB25E1843159F00A6F6F4 /* test_PalindromeString.h */,
+				9BCFF76B183F6CFC00ED91C4 /* runner.cpp */,
+				9BCFF76D183F6CFC00ED91C4 /* test_PalindromeString.1 */,
+			);
+			path = test_PalindromeString;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9BCFF758183F6CED00ED91C4 /* PalindromeString */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BCFF762183F6CED00ED91C4 /* Build configuration list for PBXNativeTarget "PalindromeString" */;
+			buildPhases = (
+				9BCFF755183F6CED00ED91C4 /* Sources */,
+				9BCFF756183F6CED00ED91C4 /* Frameworks */,
+				9BCFF757183F6CED00ED91C4 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PalindromeString;
+			productName = PalindromeString;
+			productReference = 9BCFF759183F6CED00ED91C4 /* PalindromeString */;
+			productType = "com.apple.product-type.tool";
+		};
+		9BCFF768183F6CFC00ED91C4 /* test_PalindromeString */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BCFF76F183F6CFC00ED91C4 /* Build configuration list for PBXNativeTarget "test_PalindromeString" */;
+			buildPhases = (
+				9BCFF765183F6CFC00ED91C4 /* Sources */,
+				9BCFF766183F6CFC00ED91C4 /* Frameworks */,
+				9BCFF767183F6CFC00ED91C4 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = test_PalindromeString;
+			productName = test_PalindromeString;
+			productReference = 9BCFF769183F6CFC00ED91C4 /* test_PalindromeString */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9BCFF751183F6CED00ED91C4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = liyoudi;
+			};
+			buildConfigurationList = 9BCFF754183F6CED00ED91C4 /* Build configuration list for PBXProject "PalindromeString" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9BCFF750183F6CED00ED91C4;
+			productRefGroup = 9BCFF75A183F6CED00ED91C4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9BCFF758183F6CED00ED91C4 /* PalindromeString */,
+				9BCFF768183F6CFC00ED91C4 /* test_PalindromeString */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9BCFF755183F6CED00ED91C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BCFF75D183F6CED00ED91C4 /* main.cpp in Sources */,
+				9BCFF774183F6D0C00ED91C4 /* PalindromeString.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BCFF765183F6CFC00ED91C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B9CB25C184313A100A6F6F4 /* PalindromeString.cpp in Sources */,
+				9BCFF76C183F6CFC00ED91C4 /* runner.cpp in Sources */,
+				9B9CB25F1843159F00A6F6F4 /* makefile in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		9BCFF760183F6CED00ED91C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		9BCFF761183F6CED00ED91C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		9BCFF763183F6CED00ED91C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9BCFF764183F6CED00ED91C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		9BCFF770183F6CFC00ED91C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"/work/ShareForWin/SourceCode/Research/CxxTest/cxxtest-4.3",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9BCFF771183F6CFC00ED91C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"/work/ShareForWin/SourceCode/Research/CxxTest/cxxtest-4.3",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9BCFF754183F6CED00ED91C4 /* Build configuration list for PBXProject "PalindromeString" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BCFF760183F6CED00ED91C4 /* Debug */,
+				9BCFF761183F6CED00ED91C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9BCFF762183F6CED00ED91C4 /* Build configuration list for PBXNativeTarget "PalindromeString" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BCFF763183F6CED00ED91C4 /* Debug */,
+				9BCFF764183F6CED00ED91C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9BCFF76F183F6CFC00ED91C4 /* Build configuration list for PBXNativeTarget "test_PalindromeString" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BCFF770183F6CFC00ED91C4 /* Debug */,
+				9BCFF771183F6CFC00ED91C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9BCFF751183F6CED00ED91C4 /* Project object */;
+}

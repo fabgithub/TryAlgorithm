@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:ReverseMapString/ReverseMapString.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:LargestRectangleArea/LargestRectangleArea.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:ParsingXML/ParsingXML.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:TwentyFourGame/TwentyFourGame.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:PalindromeString/PalindromeString.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:EliminateString/EliminateString.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:SortArrayOperation/SortArrayOperation.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:ReverseNumber/ReverseNumber.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:CoverageNumber/CoverageNumber.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:LuckNumber/LuckNumber.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:SmallestOperation/SmallestOperation.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:SubsequenceCount/SubsequenceCount.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:BeautifulString/BeautifulString.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:YangHuiExtend/YangHuiExtend.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:NonDisplayNumber/NonDisplayNumber.xcodeproj">
+   </FileRef>
+</Workspace>
