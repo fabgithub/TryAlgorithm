@@ -226,6 +226,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "/Volumes/Macintosh-HD/fab_document/SourceCode.localized/Research/CxxTest/cxxtest-4.3";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -258,6 +259,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "/Volumes/Macintosh-HD/fab_document/SourceCode.localized/Research/CxxTest/cxxtest-4.3";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				SDKROOT = macosx;
 			};
@@ -324,6 +326,7 @@
 				9B699E79184479B300A8568F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9B699E84184479BF00A8568F /* Build configuration list for PBXNativeTarget "test_TwentyFourGame" */ = {
 			isa = XCConfigurationList;
@@ -332,6 +335,7 @@
 				9B699E86184479BF00A8568F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
